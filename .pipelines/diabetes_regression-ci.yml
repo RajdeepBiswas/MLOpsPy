@@ -53,7 +53,7 @@ stages:
     BUILD_URI: '$(SYSTEM.COLLECTIONURI)$(SYSTEM.TEAMPROJECT)/_build/results?buildId=$(BUILD.BUILDID)'
   jobs:
   - job: "Get_Pipeline_ID"
-    condition: and(succeeded(), eq(coalesce(variables['auto-trigger-training'], 'true'), 'true'))
+    condition: and(succeeded(), eq(coalesce(variables['auto-trigger-training'], 'false'), 'true'))
     displayName: "Get Pipeline ID for execution"
     container: mlops
     timeoutInMinutes: 0
